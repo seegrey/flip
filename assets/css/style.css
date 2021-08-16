@@ -153,7 +153,7 @@ section.flip {
 @media (max-width: 768px) {
     .flipCard {
         height: 500px;
-        padding: 16px 25px;
+        padding: 16px 3px;
     }
     .flipContent {
         left: 12px;
