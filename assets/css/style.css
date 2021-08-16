@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+section.flip {
+    display: flex;
+}
+
+.flipCard {
+    flex: 1;
+    height: 720px;
+    transition: 0.5s cubic-bezier(0.6, 0, 0.4, 1);
+    position: relative;
+    padding: 72px 32px 32px 32px;
+}
+.flipCard:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+    transition: 0.5s cubic-bezier(0.6, 0, 0.4, 1);
+    z-index: -99;
+}
+.flipCard:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: 0.5s cubic-bezier(0.6, 0, 0.4, 1);
+    opacity: 0;
+}
+.flipLogo {
+    display: block;
+    margin: 0 auto;
+    z-index: 999;
+    width: 100%;
+    max-width: 180px;
+}
+.flipBg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -999;
+}
+.flipContent {
+    position: absolute;
+    bottom: 0;
+    left: 48px;
+    right: 48px;
+    color: white;
+    margin: 0 auto;
+    transition: 0.4s cubic-bezier(0, 0.6, 0.4, 1);
+    text-align: center;
+}
+.flipContent h1, .flipContent p, .buttonFold {
+    opacity: 0;
+    transition: 0.4s cubic-bezier(0, 0.6, 0.4, 1);
+}
+.flipCard .flipContent h1 {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 0;
+    transition-delay: 0s;
+    margin-bottom: 24px;
+    line-height: 1em;
+}
+.flipCard:hover .flipContent h1{
+    font-size: 72px;
+}
+.flipContent p {
+    font-size: 20px;
+    transition-delay: 0s;
+}
+.buttonFold {
+    transition-delay: 0s;
+}
+.flipCard .flipContent .button {
+    display: inline-block;
+    padding: 16px 32px;
+    color: #fff;
+    outline: 1px solid white;
+    white-space: nowrap;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 32px;
+    transition: 0.1s ease;
+    text-decoration: none;
+    font-size: 0;
+}
+.flipCard:hover .flipContent .button{
+    font-size: 16px;
+}
+.flipContent .button:hover {
+    background: #fff;
+    color: #373A36;
+}
+.flipCard:hover {
+    flex: 8;
+    /*padding: 72px;*/
+}
+.flipCard:hover:after {
+    opacity: 1;
+}
+.flipCard:hover:before {
+    opacity: 0;
+}
+.flipCard:hover .flipContent {
+    z-index: 99;
+}
+.flipCard:hover .flipContent h1, .flipCard:hover .flipContent p, .flipCard:hover .flipContent .buttonFold {
+    opacity: 1;
+    transform: translateY(-72px);
+}
+.flipCard:hover .flipContent h1 {
+    transition-delay: 0.4s;
+}
+.flipCard:hover .flipContent p {
+    transition-delay: 0.6s;
+}
+.flipCard:hover .flipContent .buttonFold {
+    transition-delay: 0.8s;
+}
+
+@media (max-width: 1024px) {
+    .flipContent {
+        left: 27px;
+        right: 27px;
+    }
+    .flipCard:hover .flipContent h1{
+        font-size: 56px;
+    }
+    .flipContent p{
+        font-size: 18px;
+    }
+    .flipCard:hover .flipContent .button{
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .flipCard {
+        height: 500px;
+        padding: 16px 25px;
+    }
+    .flipContent {
+        left: 12px;
+        right: 12px;
+    }
+    .flipCard:hover .flipContent h1{
+        font-size: 32px;
+    }
+    .flipContent p{
+        font-size: 16px;
+    }
+    .flipCard:hover .flipContent .button{
+        font-size: 12px;
+    }
+}
